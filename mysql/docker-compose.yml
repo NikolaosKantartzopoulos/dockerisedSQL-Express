@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: sc1
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rpwd
+      MYSQL_DATABASE: mysqlDB
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: pwd 
+    volumes:
+      - ./sql1:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
